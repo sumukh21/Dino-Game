@@ -22,3 +22,20 @@ while 1:
 	p_bird_sum = np.sum(p_bird)
 	print(p_cac_sum)
 
+    # white=247 and grey =83	(in my case)
+	if p_cac_sum < 24108:
+		pyautogui.press('up')
+		
+	if p_bird_sum < 24108:
+		pyautogui.keyDown('down')
+		print(p_bird)
+		print(p_bird_sum)
+		k = 1
+	
+	if p_bird_sum == 24108 and k == 1:
+		pyautogui.keyUp('down')
+		k = 0
+	
+	if cv2.waitKey(25) & 0xFF == ord('q'):
+		cv2.destroyAllWindows()
+		break
